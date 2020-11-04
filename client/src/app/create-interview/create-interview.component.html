@@ -1,1 +1,35 @@
-<p>create-interview works!</p>
+<div class="row">
+    <div class=" form col-6 offset-3">
+        <br><br>
+    <div class="col-12 colum">
+        <h5 for="fname">First Name:</h5><br>
+        <input style="width: 40%;" type="text" [formControl]="email" placeholder="Your name..">
+
+        <div *ngIf="email.errors  && isSubmitted">
+            <span style="color: red;">*Invalid Email</span>
+          </div>
+    </div>
+    <div class="col-12 colum">
+            <h5 for="fname">Start Time:</h5><br>
+            <input type="datetime-local" [formControl]="startTime">
+            <div *ngIf="startTime.errors  && isSubmitted">
+                <span style="color: red;">*Required</span>
+              </div>
+    </div>
+    <div class="col-12 colum">
+        <h5 for="fname">End Time:</h5><br>
+            <input type="datetime-local" [formControl]="endTime">
+            <div *ngIf="endTime.errors  && isSubmitted">
+                <span style="color: red;">*Required</span>
+              </div>
+    </div>
+    <br><br>
+    <div class="col-12 colum">
+        <button class="btn btn-one" (click)="scheduleInterview()">Schedule</button>
+    </div>
+    <br><br><br><br>
+    </div>
+</div>
+
+
+

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientModule } from "@angular/common/http";
+import { Schedule } from "../schemas/schedule";
+import { ApiServices } from "../services/apiService";
 
 @Component({
   selector: 'app-list-view',
@@ -7,12 +8,16 @@ import { HttpClientModule } from "@angular/common/http";
   styleUrls: ['./list-view.component.css']
 })
 export class ListViewComponent implements OnInit {
-  url:string = "http://localhost:4000/getAllSchedule";
-  constructor(private http : HttpClientModule) {
-
-    // this.http.get(this.url).toPromise().then(data =>{
-    //   console.log(data);
-    // })
+  
+  scheduleList: Schedule[];
+  constructor(private apiService: ApiServices) {
+    this.apiService.listInterviews().subscribe(res =>{
+      this.scheduleList=res;
+      this.scheduleList.forEach(element => {
+        element.endTime=new Date(element.endTime);
+        element.startTime= new Date(element.startTime);
+      });
+    })
   }
 
   ngOnInit(): void {

@@ -7,6 +7,8 @@ import { ListViewComponent } from './list-view/list-view.component';
 import { UpdateInterviewComponent } from './update-interview/update-interview.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ApiServices } from "./services/apiService";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';  
 
 @NgModule({
   declarations: [
@@ -19,9 +21,11 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,  
+    ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ApiServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

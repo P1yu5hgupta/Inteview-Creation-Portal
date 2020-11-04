@@ -84,7 +84,7 @@ module.exports = create = async (req, res) => {
               }catch (err) {
                 return res.status(400).json({
                     status: false,
-                    error: "Error while scheduling!"
+                    message: "Error while scheduling!"
                 })
               }
         }   

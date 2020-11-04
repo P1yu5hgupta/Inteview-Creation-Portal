@@ -1,1 +1,13 @@
-<p>list-view works!</p>
+<div class="row">
+    <div class ="col-12 main" *ngFor="let schedule of scheduleList">
+        <div class="column">
+            <div class="card">
+              <h6>{{schedule.email}}</h6>
+              <p>Start Time: {{schedule.startTime}}</p>
+              <p>End Time: {{schedule.endTime}}</p>
+              <button class="button">Edit</button>
+              <button class="button">Cancel/Delete</button>
+            </div>
+          </div>
+    </div>
+</div>
