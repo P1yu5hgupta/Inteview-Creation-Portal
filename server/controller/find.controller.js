@@ -8,5 +8,3 @@ module.exports = find = async (req, res) => {
         return res.json(result);
       }));
 }
-
-module.exports= find;
