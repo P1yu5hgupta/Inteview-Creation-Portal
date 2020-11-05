@@ -6,7 +6,7 @@
               <p>Start Time: {{schedule.startTime}}</p>
               <p>End Time: {{schedule.endTime}}</p>
               <button class="button">Edit</button>
-              <button class="button">Cancel/Delete</button>
+              <button class="button" (click)="deleteSchedule(schedule)">Cancel/Delete</button>
             </div>
           </div>
     </div>
