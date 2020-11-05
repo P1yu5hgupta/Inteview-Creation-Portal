@@ -8,12 +8,14 @@ Client and Server Side both run on seperate ports.
 
 Open server folder, then open terminal in that folder.
 
-->npm install //it will install all the dependencies
+->npm install //it will install all the dependencies 
+
 ->nodemon / node server.js // Server start running on port 4000
 
 After that, open client folder, then open terminal in that folder.
 
 ->npm install //it will install all the dependencies
+
 ->ng serve // application is now running in your browser on port 4200
 
 Now, open http://localhost:4200/  in your browser.
