@@ -18,7 +18,7 @@ export class ApiServices{
         return this.http.post(this.baseUrl+"delete", {"_id": _id,});
     }
 
-    updateInterview(_id: string,email:string,startTime: Date, endTime: Date): Observable<any>{
-        return this.http.post(this.baseUrl+"create", {"_id": _id,"email": email,"newStartTime": startTime,"newEndTime": endTime});
+    updateInterview(_id: string,email:string,newStartTime, newEndTime): Observable<any>{
+        return this.http.post(this.baseUrl+"update", {"_id": _id,"email": email,"newStartTime": newStartTime,"newEndTime": newEndTime});
     }
 }

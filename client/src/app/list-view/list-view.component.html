@@ -27,15 +27,15 @@
   </div>
   <div class="col-12 colum">
           <h5 for="fname">New Start Time:</h5><br>
-          <input type="datetime-local" [formControl]="startTime">
-          <div *ngIf="startTime.errors  && isSubmitted">
+          <input type="datetime-local" [formControl]="newStartTime">
+          <div *ngIf="newStartTime.errors  && isSubmitted">
               <span style="color: red;">*Required</span>
             </div>
   </div>
   <div class="col-12 colum">
       <h5 for="fname">New End Time:</h5><br>
-          <input type="datetime-local" [formControl]="endTime">
-          <div *ngIf="endTime.errors  && isSubmitted">
+          <input type="datetime-local" [formControl]="newEndTime">
+          <div *ngIf="newEndTime.errors  && isSubmitted">
               <span style="color: red;">*Required</span>
             </div>
   </div>

@@ -14,8 +14,8 @@ export class ListViewComponent implements OnInit {
   scheduleList: Schedule[];
   updating: Boolean=false;
   updatingschedule:Schedule;
-  startTime= new FormControl('', [Validators.required]);
-  endTime= new FormControl('', [Validators.required]);
+  newStartTime= new FormControl('', [Validators.required]);
+  newEndTime= new FormControl('', [Validators.required]);
   isSubmitted: boolean=false;
   constructor(private apiService: ApiServices,private router: Router) {
     this.apiService.listInterviews().subscribe(res =>{
@@ -45,12 +45,15 @@ export class ListViewComponent implements OnInit {
   }
   updateSchedule(){
     this.isSubmitted=true;
-    if(this.startTime.valid && this.endTime.valid){
-      // this.apiService.updateInterview(this.updatingschedule._id,this.updatingschedule.email, this.startTime ,this.endTime).subscribe(res=>{
-      //   console.log(res);
-      // })
-      console.log(this.updatingschedule);
-      this.router.navigate(['/']);
+    if(this.newStartTime.valid && this.newEndTime.valid){
+      this.apiService.updateInterview(this.updatingschedule._id,this.updatingschedule.email,this.newStartTime,this.newEndTime).subscribe(res=>{
+        if(res.status){
+          alert(res.message);
+          this.router.navigate(['/']);
+        }
+        else
+          alert(res.message);
+      })
     }
   }
 }
