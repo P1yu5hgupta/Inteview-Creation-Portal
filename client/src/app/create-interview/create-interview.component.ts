@@ -12,7 +12,6 @@ export class CreateInterviewComponent implements OnInit {
   email= new FormControl('', [  
     Validators.required,
     Validators.minLength(5),  
-    Validators.maxLength(20),
     Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+[.]+[a-zA-Z0-9-.]+$")
   ]);
   startTime= new FormControl('', [Validators.required]);

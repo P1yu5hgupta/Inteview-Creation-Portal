@@ -1,13 +1,52 @@
-<div class="row">
-    <div class ="col-12 main" *ngFor="let schedule of scheduleList">
+<div class="row" *ngIf="!updating">
+    <div class ="col-12 main" *ngFor="let schedule of scheduleList" >
         <div class="column">
             <div class="card">
               <h6>{{schedule.email}}</h6>
               <p>Start Time: {{schedule.startTime}}</p>
               <p>End Time: {{schedule.endTime}}</p>
-              <button class="button">Edit</button>
-              <button class="button" (click)="deleteSchedule(schedule)">Cancel/Delete</button>
+              <button class="button" *ngIf="!schedule.updating" (click)="update(schedule)">Edit</button>
+              <button class="button" *ngIf="!schedule.updating" (click)="deleteSchedule(schedule)">Cancel/Delete</button>
             </div>
           </div>
     </div>
+</div>
+<div class="row" *ngIf="updating">
+  <div class=" form col-6 offset-3">
+      <br><br>
+  <div class="col-12 colum">
+      <h5 for="fname">Email: </h5><br>
+      {{updatingschedule.email}}
+  </div>
+  <div class="col-12 colum">
+    <h5 for="fname">Previous Start Time: </h5><br>
+    {{updatingschedule.startTime}}
+  </div><div class="col-12 colum">
+    <h5 for="fname">Previous End Time: </h5><br>
+    {{updatingschedule.endTime}}
+  </div>
+  <div class="col-12 colum">
+          <h5 for="fname">New Start Time:</h5><br>
+          <input type="datetime-local" [formControl]="startTime">
+          <div *ngIf="startTime.errors  && isSubmitted">
+              <span style="color: red;">*Required</span>
+            </div>
+  </div>
+  <div class="col-12 colum">
+      <h5 for="fname">New End Time:</h5><br>
+          <input type="datetime-local" [formControl]="endTime">
+          <div *ngIf="endTime.errors  && isSubmitted">
+              <span style="color: red;">*Required</span>
+            </div>
+  </div>
+  <br><br>
+  <div class="col-12 colum">
+      <button class="btn btn-one" (click)="updateSchedule()">Update</button>
+  </div>
+  <br>
+  <div class="col-12 colum">
+    <button class="btn btn-one" (click)="update()">Cancel</button>
+</div>
+  <br><br><br><br>
+  </div>
 </div>
