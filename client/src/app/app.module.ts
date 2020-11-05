@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateInterviewComponent } from './create-interview/create-interview.component';
 import { ListViewComponent } from './list-view/list-view.component';
-import { UpdateInterviewComponent } from './update-interview/update-interview.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiServices } from "./services/apiService";
@@ -15,7 +14,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     CreateInterviewComponent,
     ListViewComponent,
-    UpdateInterviewComponent,
     WelcomeComponent
   ],
   imports: [

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import { Schedule } from "../schemas/schedule";
 import { ApiServices } from "../services/apiService";
 import { Router } from '@angular/router';
@@ -46,7 +46,8 @@ export class ListViewComponent implements OnInit {
   updateSchedule(){
     this.isSubmitted=true;
     if(this.newStartTime.valid && this.newEndTime.valid){
-      this.apiService.updateInterview(this.updatingschedule._id,this.updatingschedule.email,this.newStartTime,this.newEndTime).subscribe(res=>{
+      console.log(this.newStartTime);
+      this.apiService.updateInterview(this.updatingschedule._id,this.updatingschedule.email,this.newStartTime.value,this.newEndTime.value).subscribe(res=>{
         if(res.status){
           alert(res.message);
           this.router.navigate(['/']);

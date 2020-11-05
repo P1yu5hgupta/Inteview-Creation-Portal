@@ -2,13 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListViewComponent } from "./list-view/list-view.component"
 import { CreateInterviewComponent } from "./create-interview/create-interview.component"
-import { UpdateInterviewComponent } from "./update-interview/update-interview.component"
 import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
   { path: 'upcomingInterview', component: ListViewComponent },
   { path: 'createInterview', component: CreateInterviewComponent },
-  { path: 'update', component: UpdateInterviewComponent },
   { path: '', component: WelcomeComponent },
   { path: 'home', component: WelcomeComponent },
 ];

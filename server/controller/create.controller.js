@@ -13,41 +13,26 @@ module.exports = create = async (req, res) => {
         result.forEach(schedule => {
             var tmpStartTime=schedule.startTime;
             var tmpEndTime=schedule.endTime;
-            if(startTime.getDate() == tmpStartTime.getDate() || startTime.getDate() == tmpEndTime.getDate()){
-                if(startTime.getTime()>=tmpStartTime.getTime() && startTime.getTime()<=tmpEndTime.getTime()){
-                    flag=1;
-                    return res.json({
-                        status: false,
-                        message: "Slot not Available"
-                    })
-                }
+            if(startTime <= tmpEndTime && tmpStartTime <= endTime){
+                flag=1;
+                return res.json({
+                    status: false,
+                    message: "Slot not Available"
+                })
             }
-            else if(endTime.getDate() == tmpStartTime.getDate() || endTime.getDate() == tmpEndTime.getDate()){
-                if(endTime.getTime()>=tmpStartTime.getTime() && endTime.getTime()<=tmpEndTime.getTime()){
-                    flag=1;
-                    return res.json({
-                        status: false,
-                        message: "Slot not Available"
-                    })
-                }
+            else if(startTime.getTime()>endTime.getTime() && startTime.getDate()==endTime.getDate()){
+                flag=1;
+                return res.json({
+                    status: false,
+                    message: "Invalid Timings"
+                })
             }
-            else if(startTime.getDate() == tmpStartTime.getDate() || endTime.getDate() == tmpStartTime.getDate()){
-                if(startTime.getTime()<=tmpStartTime.getTime() && endTime.getTime()>=tmpStartTime.getTime()){
-                    flag=1;
-                    return res.json({
-                        status: false,
-                        message: "Slot not Available"
-                    })
-                }
-            }
-            else if(startTime.getDate() == tmpEndTime.getDate() || endTime.getDate() == tmpEndTime.getDate()){
-                if(startTime.getTime()<=tmpEndTime.getTime() && endTime.getTime()>=tmpEndTime.getTime()){
-                    flag=1;
-                    return res.json({
-                        status: false,
-                        message: "Slot not Available"
-                    })
-                }
+            else if(startTime.getDate()>endTime.getDate()){
+                flag=1;
+                return res.json({
+                    status: false,
+                    message: "Invalid Timings"
+                })
             }
         })
         if(!flag){
@@ -84,7 +69,7 @@ module.exports = create = async (req, res) => {
               }catch (err) {
                 return res.status(400).json({
                     status: false,
-                    message: "Error while scheduling!"
+                    message: "Invalid Timings!"
                 })
               }
         }   
