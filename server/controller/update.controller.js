@@ -67,8 +67,8 @@ module.exports = update = async (req, res) => {
                         var mailOptions = {
                         from: 'tempmailid3210@gmail.com',
                         to: req.body.email,
-                        subject: 'Interview Scheduled',
-                        text: 'Gentle Reminder, You have an interview scheduled with IB Academy from ' + Schedule.startTime + ' to ' +  Schedule.endTime + '. All the Best for the Interview',
+                        subject: 'Updated Interview Scheduled',
+                        text: 'Gentle Reminder, You interview scheduled with IB Academy id updated with timings from ' + Schedule.startTime + ' to ' +  Schedule.endTime + '. All the Best for the Interview',
                         };
                         
                         transporter.sendMail(mailOptions, function(error, info){

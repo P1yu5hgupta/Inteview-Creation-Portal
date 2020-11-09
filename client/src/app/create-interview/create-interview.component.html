@@ -3,7 +3,7 @@
         <br><br>
     <div class="col-12 colum">
         <h5 for="fname">Email:</h5><br>
-        <input style="width: 40%;" type="text" [formControl]="email" placeholder="Your name..">
+        <input style="width: 40%;" type="text" [formControl]="email" placeholder="Your EmailId..">
 
         <div *ngIf="email.errors  && isSubmitted">
             <span style="color: red;">*Invalid Email</span>
