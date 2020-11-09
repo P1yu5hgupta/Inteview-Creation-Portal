@@ -4,10 +4,10 @@ var mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise
 mongoose.connect(config.mongoUri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false })
-console.log(config.mongoUri)
 mongoose.connection.on('error', () => {
   throw new Error(`unable to connect to database: ${config.mongoUri}`)
 })
+console.log("Database Connected Successfully");
 
 app.listen(config.port, (err) => {
   if (err) {

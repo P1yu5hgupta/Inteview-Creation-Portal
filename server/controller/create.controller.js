@@ -20,21 +20,28 @@ module.exports = create = async (req, res) => {
                     message: "Slot not Available"
                 })
             }
-            else if(startTime.getTime()>endTime.getTime() && startTime.getDate()==endTime.getDate()){
-                flag=1;
-                return res.json({
-                    status: false,
-                    message: "Invalid Timings"
-                })
-            }
-            else if(startTime.getDate()>endTime.getDate()){
-                flag=1;
-                return res.json({
-                    status: false,
-                    message: "Invalid Timings"
-                })
-            }
-        })
+        });
+        if(startTime.getTime()>endTime.getTime() && startTime.getDate()==endTime.getDate()){
+          flag=1;
+          return res.json({
+              status: false,
+              message: "Invalid Timings"
+          })
+        }
+        else if(startTime.getDate()>endTime.getDate()){
+            flag=1;
+            return res.json({
+                status: false,
+                message: "Invalid Timings"
+            })
+        }
+        else if(startTime<Date.now()|| endTime<Date.now()){
+          flag=1;
+          return res.json({
+              status: false,
+              message: "Slot Timings Expired"
+          })
+        }
         if(!flag){
             const Schedule = new Sch(req.body);
             try {

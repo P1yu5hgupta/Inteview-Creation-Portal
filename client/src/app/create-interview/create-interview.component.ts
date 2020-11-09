@@ -28,15 +28,10 @@ export class CreateInterviewComponent implements OnInit {
       this.apiService.createInterview(this.email.value,this.startTime.value,this.endTime.value).subscribe(
         res=>{
           if(!res.status){
-            if(res.message=="Slot not Available"){
-              alert("Slot Not Available");
-            }
-            else{
-              alert("Error while Scheduling Interview");
-            }
+              alert(res.message);
           }
           else{
-            alert("Interview Scheduled Successfully");
+            alert(res.message);
             this.router.navigate(['/']);
           }
         }
